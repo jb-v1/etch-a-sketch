@@ -7,3 +7,15 @@ for (let i = 0; i < 16; i++) {
         divContainer.appendChild(box);
     };
 };
+
+// "hover effect"
+const boxes = document.querySelectorAll('.square-box');
+boxes.forEach(nodeItem => {nodeItem.addEventListener("mouseover", changeColor)});
+
+function changeColor() {
+        this.style['background-color'] = "grey";
+        this.removeEventListener("mouseover", changeColor);
+}
+
+
+
