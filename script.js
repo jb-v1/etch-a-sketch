@@ -2,21 +2,31 @@ const divContainer = document.querySelector('.container');
 
 for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
-        const box = document.createElement('div');
-        box.classList.add('square-box');
+        const box = document.createElement("div");
+        box.classList.add("square-box");
         divContainer.appendChild(box);
     };
 };
 getBoxes();
 
-// "hover effect"
+// "Draw"
 function getBoxes() {
-    const boxes = document.querySelectorAll('.square-box');
-    boxes.forEach(nodeItem => {nodeItem.addEventListener("mouseover", changeColor)});
+    const boxes = document.querySelectorAll(".square-box");
+    boxes.forEach(nodeItem => {
+        nodeItem.addEventListener("mousedown", changeColor);
+        nodeItem.addEventListener("mouseover", changeColor);
+    });
 };
 
-function changeColor() {
+let isDrawing = false;
+window.addEventListener('mousedown', () => {isDrawing = true;});
+window.addEventListener('mouseup', () => {if (isDrawing) {isDrawing = false;}});
+
+function changeColor(event) {
+        // Return when mouse hovers. Only run if mouse click is held down.
+        if (event.type == "mouseover" && !isDrawing) {return;};
         this.style['background-color'] = "grey";
+        this.removeEventListener("mousedown", changeColor);
         this.removeEventListener("mouseover", changeColor);
 };
 
@@ -31,7 +41,7 @@ slider.addEventListener("input", () => {
 );
 
 function removeBoxes(inputVal) {
-    const rmBoxes = document.querySelectorAll('.square-box');
+    const rmBoxes = document.querySelectorAll(".square-box");
     rmBoxes.forEach(box => divContainer.removeChild(box));
     newGrid(inputVal);
 };
@@ -39,8 +49,8 @@ function removeBoxes(inputVal) {
 function newGrid(newSize) {
     for (let i = 0; i < newSize; i++) {
         for (let j = 0; j < newSize; j++) {
-            const box = document.createElement('div');
-            box.classList.add('square-box');
+            const box = document.createElement("div");
+            box.classList.add("square-box");
             divContainer.appendChild(box);
         };
     };
