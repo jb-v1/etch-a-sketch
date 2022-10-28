@@ -1,0 +1,15 @@
+.container {
+    display: inline-grid;
+    grid-template-columns: repeat(16,auto);
+
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.square-box {
+    box-sizing: border-box;
+    border: 1px solid grey;
+
+    height: 10px;
+    width: 10px;
+}
