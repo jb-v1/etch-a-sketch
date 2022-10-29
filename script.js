@@ -55,5 +55,6 @@ function newGrid(newSize) {
         };
     };
     divContainer.style['grid-template-columns'] = `repeat(${newSize}, auto)`;
+    divContainer.style['grid-template-rows'] = `repeat(${newSize}, auto)`;
     getBoxes();
 };
