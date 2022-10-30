@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 body {
@@ -34,7 +35,6 @@ h1 {
 }
 
 .square-box {
-    user-select: none;
     box-sizing: border-box;
     border: 1px solid #b3b396;
 }
