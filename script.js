@@ -36,9 +36,10 @@ const showValue = document.querySelector(".showValue");
 
 slider.addEventListener("input", () => {
     showValue.textContent = `${slider.value}x${slider.value}`;
-    removeBoxes(slider.value);
     }
 );
+
+slider.addEventListener("mouseup", () => {removeBoxes(slider.value);});
 
 function removeBoxes(inputVal) {
     const rmBoxes = document.querySelectorAll(".square-box");
