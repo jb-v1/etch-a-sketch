@@ -25,7 +25,7 @@ window.addEventListener('mouseup', () => {if (isDrawing) {isDrawing = false;}});
 function changeColor(event) {
         // Return when mouse hovers. Only run if mouse click is held down.
         if (event.type == "mouseover" && !isDrawing) {return;};
-        this.style['background-color'] = "grey";
+        this.style['background-color'] = "#45403B";
         this.removeEventListener("mousedown", changeColor);
         this.removeEventListener("mouseover", changeColor);
 };
